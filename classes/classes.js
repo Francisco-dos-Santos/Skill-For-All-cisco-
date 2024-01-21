@@ -1,5 +1,5 @@
 
-class Vihicle{
+ const Vihicle = class{
   constructor({id,latitude, longitude}){
     this.id=id;
     this.setPostion({latitude,longitude});
@@ -19,4 +19,4 @@ class Vihicle{
 console.log("testando");
 let vihicle1= new Vihicle( {id: "LA045", latitude: 19.43232, longitude: 56.89975});
 vihicle1.setPostion({longitude: 59.456, latitude:40.6754});
-console.log(vihicle1.getPostion())
+console.log(vihicle1)
