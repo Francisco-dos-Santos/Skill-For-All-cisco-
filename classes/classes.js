@@ -30,3 +30,33 @@ console.log(vihicle1);
 */
 console.log(vihicle1.constructor.name);
 console.log( vihicle1 instanceof Vihicle);   
+
+
+// used getters and setters
+
+const People = class{
+  constructor({id,name,idade}){
+    this.id=id;
+    this.datas={name,idade};
+    this.status="offline";
+  };
+  set datas({name,idade}){
+    this.time=Date.now();
+    this.name=name;
+    this.idade=idade;
+  };
+  get datas(){
+    return {
+      name:this.name,
+      idade:this.idade
+    };
+  };
+}
+
+const people=new People({id:"LA50",name:"Francisco",idade:22});
+let values=Array(0);
+values.push(new People({id:"LA50",name:"Francisco",idade:25}))
+values.push(new People({id:"LA23",name:"Francisco",idade:23}))
+// editando 
+values[0].datas={idade:30,name:"Francisco"};
+console.log(values);
