@@ -26,8 +26,37 @@ class Bus extends Vihicle{
   };
 }
 
-let vihicle=new Vihicle({id:"LA50", longitude:19.45665,latitude:57.4847})
-console.log(vihicle);
+// let vihicle=new Vihicle({id:"LA50", longitude:19.45665,latitude:57.4847})
+// console.log(vihicle);
 
-let bus = new Bus({seats:40,latitude:19.4665,id:"BA89",longitude:25.78643});
-console.log(bus);
+// let bus = new Bus({seats:40,latitude:19.4665,id:"BA89",longitude:25.78643});
+// console.log(bus);
+
+// shadowing in class
+class AlmostEmptyClass { 
+  constructor(sth) { 
+      console.log(sth); 
+  }; 
+  sayHi() { 
+      console.log("Hi!") 
+  }; 
+}; 
+class ExtendedClass extends AlmostEmptyClass {
+  constructor(name) {
+    super("I’m super ...");
+    this.name = name;
+};
+  sayHi() { 
+    console.log(`Hi ${this.name}!`); 
+  };
+  newHi() {
+    this.sayHi();
+  }
+  oldHi() {
+    super.sayHi();
+  };
+};
+let obj = new ExtendedClass("Bob"); // -> I’m super ...
+obj.sayHi();    // -> Hi Bob!
+// obj.newHi();    // -> Hi Bob!
+// obj.oldHi();    // Hi!
