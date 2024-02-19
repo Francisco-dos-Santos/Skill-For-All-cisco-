@@ -7,3 +7,6 @@ Exercise 1:Array in javascript have a sort method available which, as you migth,
 
 # fibonacci 
 é um termo em matimatica que se calcula a soma do first number pelo seu anterior , excepto os 2 primeiro que são n1=0 e n2=1, a sequencia f2=f0+f1,f3=f2+f1,f4=f3+f2,f5=f3+f4
+
+# functions for show list the contacts
+exercise final
