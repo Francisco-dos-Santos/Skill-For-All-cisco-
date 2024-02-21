@@ -281,5 +281,3 @@ for (let user of to){
 console.log(extendtutor)
 
 class user{};
-
-console.log(point)
