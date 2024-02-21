@@ -33,3 +33,20 @@ an array with {course, level} objects, if the teacher teaches the courses the st
 If the course name is passed as the last argument, then the method should return the {course, level} object in case of a correct match, or undefined otherwise.
 
 Test your solution using the following code:
+
+# scenario #4
+let´s try to put all the previously prepared elements together. Create a Tutoring class that will have two of users: students and teachers separately
+
+Define methods in it:
+
+- getStudentByName(name,surname) -which will return a Student object with the given name and surname(or undefined if the student has not been added before.)
+- getTeacherByName(name,surname) -which will return a Teacher object with the given name and surname(or undefined if the teacher has not been added before.)
+- getStudentsForTeacher(Teacher)-which will return an array of students that teacher is able to tutor;
+- getTeacherForStudent(student)-which will return an array of teachers able to tutor the student;
+- addStudent(name,surname,email) - which will add a new student object to the list;
+- addTeacher(name,surname,email) - which will add a new teacher object to the list;
+
+
+# Scenario #5
+Create an ExtendeTutoring class, inheriting from Tutoring.
+Equip it width one new method:sendMessages(from,tp ,message).the from argument is the user(student or teacher) who sends the message. the arguement to is the list of recipients user(user object).
