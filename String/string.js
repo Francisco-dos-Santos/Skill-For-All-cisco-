@@ -77,5 +77,5 @@ console.log("abc" < "acd"); // -> true
 console.log("b" < "acd"); // false
 console.log("brettesnes" > "Sundsfjord"); // -> true as minusculas são tratadas primeiro
 console.log("Brettesnes" < "Sundsfjord"); // -> true 
-console.log("Ørnes".localeCompare("Sundsfjord", "nn")); // -> -1 o primeiro agurment obrigatório é a comparação
+console.log("Ørnes".localeCompare("Sundsfjord", "nn")); // -> -1 o primeiro agurment obrigatório é a comparação se for identico retorna 0
 console.log("Ørnes".localeCompare("Brettesnes", "nn")); // -> 1 o second arguement representa o local(ex nn-noruega , en-inglish)
