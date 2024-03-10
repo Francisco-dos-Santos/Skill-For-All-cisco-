@@ -97,7 +97,7 @@ começando da esquerda(no inicio) a direita, caso contrario retorna -1.
 lastIndexOf - quase semelhante ao indexOf, só que esse começa da direita(no final) da matriz
 find- method - recebe como parametro uma funçao com teste de condição, retorna valor se um 
 item satisfaz a condição dada e termina a pesquisa, se nenhum item for retorna undefined.
-findIndex - retorna o indice se for bem sucessido, caso contrio retorna -1
+findIndex - retorna o indice se for bem sucessido, caso contrio retorna -1.
 */
 let myPets = ["cat", "dog", "hamster", "canary", "shark", "cat", "dog"];
 // console.log(myPets.includes("shark")); // -> true
@@ -110,4 +110,67 @@ console.log(myPets.lastIndexOf("dog")); // -> 6
 console.log(myPets.find(item => item.includes("og"))); // -> dog
 // console.log(myPets.findIndex(item => item.length > 3)); // -> 2
 console.log(myPets.findIndex(item => item.includes("og"))); // -> 1
+
+/*
+slice-method não afecta o array original, recebe 2 agr (slice(arg1,arg2)), copia uma parte selecionada do array;
+arg1-determina o indice onde começamos a copia(se for negativo começa a copia do ffinal do array);
+se for omitido o segundo arg, ele copia do indece indicado até o final do array(slice(2)); 
+arg2- é o indice onde a vai terminar a copia do array(o elemento desse indice não será copiado);
+*/
+let p1 = myPets.slice(3); // ->  ["canary", "shark", "cat", "dog"]
+let p2 = myPets.slice(3, 5); // -> ["canary", "shark"]
+let p3 = myPets.slice(-3); // -> ["shark", "cat", "dog"]
+let p4 = myPets.slice(-3, -1); // -> ["shark", "cat"]
+// console.log(p4);
+// console.log(myPets);
+
+/*
+splice- method altera o array original, usados de 2 maneira.
+1 maneira: remover os elementos recebe 1 ou 2 argumentos, 1 arg- o indece do primeiro elemento
+a ser removido, 2 agr- é números de elementos a serem removidos, se for negativo o indece(inicia do final);
+caso não for passado o segundo remove do indece até o final do array e ele retorna os elementos exclidos.
+
+2 maneira : pode ser usado para inserir new elementos no array, devem sem passados os 2 arg falados
+anteriormente, se não queremos excluir nada passamos no segundo arg(0), todo argumento subsequentes
+fornecemos os valores que serão localizados na matriz.
+Nota:podemos usar para remover varios elementos selecionados e inserir novos em seu lugar ou podemos add 
+novos do indice indicado sem remover os existentes,
+*/
+let removedPets = myPets.splice(2, 3); 
+console.log(myPets); // -> ["cat", "dog", "cat", "dog"]
+console.log(removedPets); // -> ["hamster", "canary", "shark"]
+// add elementos
+myPets.splice(2, 0, "hamster", "canary", "shark")
+console.log(myPets);
+
+// Falando de Desestruturação
+/* 
+  Desestruturação refece se não quisermos copia um item do array, podemos deixar um espaço em branco 
+  separado por virgulas,se um elemento não for encotrados no array retorna undefined.
+  A atribuição de desestruturação nos permite preparar valores padrão, que serão usados 
+  se não houver nenhum elemento no array (caso contrário, o valor padrão será ignorado).
+*/
+myPets = ["cat", "dog", "hamster", "canary"];
+let [pt1, , pt3, pt4] = myPets;
+console.log(pt1);
+myPets = ["cat", "dog"];
+let [pet1 = "fish", , pet3 = "fish"] = myPets;
+console.log(pet1); // -> cat
+console.log(pet3); // -> fish
+
+// SPREAD OPERATOR operador spread (ou seja, três pontos).
+/*
+  Ele permite a separação do array em elementos individuais onde uma lista(array,objects) 
+  de elementos ou argumentos é esperada.
+  O exemplo mais simples é usar elementos de um array existente para criar uma nova.
+  também pode ser usado para espalhar o array sobre os elementos enquanto os transmite 
+  como argumentos da função.
+*/
+array1 = [100, 200, 300];
+array2 = [1000, 2000];
+array3 = [10, 20, ...array1, 500, ...array2]; //-> [10, 20, 100, 200, 300, 500, 1000, 2000]
+let testFn = (a, b, c, d) => a + b + c + d;
+let array = [10, 20, 30,40];
+console.log(testFn(...array)); // -> 100
+console.log(...array);
 
