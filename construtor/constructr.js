@@ -1,6 +1,7 @@
 console.log("boas muito massa");
 /*
-  work width condtructor (conssite em key and value)
+  work width condtructor (conssite em key and value);
+  // ===============CONSTRUCT SET=================
   Constructr Set: é usado para criar uma coleção de elementos exclusivos(únicos),
   Qualquer tentativa de adicionar um elemento que já esteja na coleção será ignorada.
   Fornece methods para verificar se há um elemento específico em nossa coleção e revisa todos 
@@ -18,7 +19,7 @@ console.log("boas muito massa");
   next- permite mover para o próximo elemento de coleção, chamar ele em seguida return um object que 
   contem o campo value.Além do value, há outro campo done, que nos informará se o item visitado 
   atual é o último da coleção.
-  Keys - é um method edentico ao do values
+  Keys - é um method identico ao do values
 */
 let emptySet = new Set(); //-> {}
 console.log(emptySet.size); //-> 0
@@ -58,3 +59,55 @@ e podemos usar se quisermos converter uma coleção em array ou passá-la como a
 console.log(petsSet instanceof Set); // -> true
 let petsArray = [...petsSet]; // -> ["cat", "dog", "hamster"]
 console.log(petsArray instanceof Array); // -> true
+
+
+// ===============CRONSTRUCTR Map==============
+// 
+/*
+Essa construção é semelhante a um objeto comum, onde nomes de propriedade são chaves, 
+às quais atribuímos valores.
+O importante é que cada elemento dessa matriz também é uma matriz, uma matriz de dois elementos.
+A chave será armazenada na posição zero do primeiro valor.
+Gerenciamos nossa coleção usando os métodos has, set, get, delete e, clear.
+para percorrer usaremos o mesmo method que apredemos no set: forEach,
+values - acontence o mesmo no set, o valor é retitado a chave é ignorada
+keys- também retorna um iterador, só que desta vez sua chave é retirada de cada elemento, não seu valor.
+entries- o method igual ao iterador values e outros só que ele retorna a chave e o valor como uma matriz de dois elementos
+*/
+
+let emptyMap = new Map();
+let petsMap = new Map([["cats", 1],[ "dogs", 2],[ "hamsters", 5]]);
+console.log(emptyMap.size); // -> 0
+console.log(petsMap.size); // -> 3
+console.log(petsMap.has("dogs")); // -> true
+console.log(petsMap.has("sharks")); // -> false
+console.log(petsMap.get("hamsters")); // -> 5
+petsMap.set("hamsters", 6);
+console.log(petsMap.get("hamsters")); // -> 6
+petsMap.delete("hamsters");
+console.log(petsMap.get("hamsters")); // -> undefined
+petsMap.clear();
+console.log(petsMap.size); // -> 0
+
+let anotherPetsMap = new Map([["snakes", 1],["cats", 3],["dogs", 2]]);
+
+anotherPetsMap.forEach((value, key) => console.log(`${key} : ${value}`));
+let petValuesIterator = anotherPetsMap.values();
+console.log(petValuesIterator.next().value); // -> 1
+
+let petKeysIterator = anotherPetsMap.keys();
+console.log(petKeysIterator.next().value); // -> snakes
+
+let petsIterator2 = anotherPetsMap.entries();
+let resulte = petsIterator2.next();
+while (!resulte.done) {
+    console.log(resulte.value); // -> ["snakes", 1] -> "cats", 3] -> ["dogs", 2]
+ resulte = petsIterator2.next();
+}
+
+// Com o propósito de percorrer as coleções(ou seja array,map,set,) foi criado em JavaScript – o for(let key of keys)
+let petsmap = new Map([["cats", 1], ["dogs", 3], ["hamsters", 2]]);
+for( let pet of petsmap) {
+    console.log(pet); // -> ["cats", 1] -> ["dogs", 3] -> ["hamsters", 2]
+    console.log(pet[0]); // -> cats -> dogs -> hamsters
+}
