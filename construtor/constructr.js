@@ -111,3 +111,8 @@ for( let pet of petsmap) {
     console.log(pet); // -> ["cats", 1] -> ["dogs", 3] -> ["hamsters", 2]
     console.log(pet[0]); // -> cats -> dogs -> hamsters
 }
+
+petsMap = new Map([["cats", 1], ["dogs", 3], ["hamsters", 2]]);
+console.log(petsMap instanceof Map); // -> true
+petsArray = [...petsMap]; // -> [["cats", 1], ["dogs", 3],["hamsters", 2]]
+console.log(petsArray instanceof Array); // -> true
